@@ -18,7 +18,7 @@ def main():
 
 
 if __name__ == "__main__":
-    test_input = """    
+    test_input = """
     """
     sys.stdin = StringIO(test_input)
     main()
