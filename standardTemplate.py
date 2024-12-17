@@ -11,6 +11,7 @@ def main():
 
     for _ in range(t):
         a, b = map(int, data[index].split()) #for individual values
+        n = int(data[index]) #for individual value
         numbers = list(map(int, data[index].split())) #for inputting into an array
         index += 1
 

@@ -1,4 +1,4 @@
-from io import StringIO
+# from io import StringIO
 import sys
 
 def main():
@@ -22,13 +22,13 @@ def main():
         sys.stdout.write("YES" + "\n")
 
 if __name__ == "__main__":
-    test_input = """5
-0 1
-0 3
-2 0
-2 3
-3 1
+#     test_input = """5
+# 0 1
+# 0 3
+# 2 0
+# 2 3
+# 3 1
 
-    """
-    sys.stdin = StringIO(test_input)
+#     """
+#     sys.stdin = StringIO(test_input)
     main()
