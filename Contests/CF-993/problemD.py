@@ -20,7 +20,23 @@ def main():
         index += 1
         array_a = list(map(int, data[index].split())) 
         index += 1
-        array_b = [array_a[0]]
+        array_b1 = [array_a[0]]
+
+        from collections import Counter
+        
+        array_b = []
+        counter = Counter()
+        
+        while True:
+            # append elements to array_b
+            element = # get the next element to append
+            array_b.append(element)
+        
+            # update the counter
+            counter[element] += 1
+        
+            # print the current counter
+            print(counter)
 
         for i in range(n):
             array_b.append()

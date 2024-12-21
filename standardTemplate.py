@@ -13,6 +13,7 @@ def main():
         a, b = map(int, data[index].split()) #for individual values
         n = int(data[index]) #for individual value
         numbers = list(map(int, data[index].split())) #for inputting into an array
+        s = data[index] #for inputting into a string
         index += 1
 
         sys.stdout.write(str(result) + "\n")
