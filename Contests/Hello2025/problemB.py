@@ -1,14 +1,6 @@
-from io import StringIO
+# from io import StringIO
 import sys
-
-def frequency_array(arr):
-    freq = {}
-    for num in arr:
-        if num in freq:
-            freq[num] += 1
-        else:
-            freq[num] = 1
-    return list(freq.values())
+from collections import Counter
 
 def main():
     input = sys.stdin.read
@@ -23,34 +15,40 @@ def main():
         index += 1
         numbers = list(map(int, data[index].split()))
         index += 1
+        
+        freq_arr = list(Counter(numbers).values())        
+        freq_arr.sort()
+        length = len(freq_arr)
 
-        freq_arr = frequency_array(numbers)
+        ind = 0
 
-        while k and freq_arr:
-            min_val = min(freq_arr)
+        while ind < length:
+            min_val = freq_arr[ind]
             if min_val <= k:
                 k -= min_val
-                freq_arr.remove(min_val)
+                ind += 1
+            else:
+                break
 
-        result = len(freq_arr)
+        result = max(1, length - ind)
         
         sys.stdout.write(str(result) + "\n")
 
 if __name__ == "__main__":
-    test_input = """6
-1 0
-48843
-3 1
-2 3 2
-5 3
-1 2 3 4 5
-7 0
-4 7 1 3 2 4 1
-11 4
-3 2 1 4 4 3 4 2 1 3 3
-5 5
-1 2 3 4 5
+#     test_input = """6
+# 1 0
+# 48843
+# 3 1
+# 2 3 2
+# 5 3
+# 1 2 3 4 5
+# 7 0
+# 4 7 1 3 2 4 1
+# 11 4
+# 3 2 1 4 4 3 4 2 1 3 3
+# 5 5
+# 1 2 3 4 5
 
-    """
-    sys.stdin = StringIO(test_input)
+#     """
+#     sys.stdin = StringIO(test_input)
     main()
