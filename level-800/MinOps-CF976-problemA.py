@@ -2,9 +2,18 @@ from io import StringIO
 import sys
 import math
 
+def power_func(a, b):
+    if b == 0:
+        return 1
+    res = power_func(a, b // 2)
+    if b & 1:
+        return res * res * a
+    else:
+        return res * res
+
 def nearest_power(n, k):
-    power = math.floor(math.log(n, k))
-    if k ** (power + 1) <= n:
+    power = int(math.log(n) / math.log(k))
+    if power_func(k, (power + 1)) <= n:
         return power + 1
     return power
 
@@ -36,7 +45,7 @@ def main():
             result += n
         else:
             while n >= k:
-                n -= (k ** nearest_power(n, k))
+                n -= power_func(k, nearest_power(n, k))
                 result += 1
             result += n
 
