@@ -14,14 +14,14 @@ def main():
         index += 1
         numbers = list(map(int, data[index].split()))
         index += 1
-        
+
         result = b-1 if b > 1 else 0
         b = 1
 
         for i in range(n):
             b = min(a, numbers[i] + 1) - 1
             result += b
-        
+
         sys.stdout.write(str(result + 1) + "\n")
 
 
